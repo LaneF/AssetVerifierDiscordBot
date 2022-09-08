@@ -1,0 +1,12 @@
+{
+  "name": "cleverousdiscordbot22",
+  "version": "0.0.0",
+  "description": "cleverousdiscordbot22",
+  "main": "node app.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "discord.js": "^14.3.0"
+  }
+}
