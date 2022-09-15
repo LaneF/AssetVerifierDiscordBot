@@ -18,10 +18,11 @@ https://forum.unity.com/threads/free-invoice-verifier-bot-for-discord.1034953/
 * Assign your Secret Discord Bot Token in Heroku Settings (named DISCORD_TOKEN)
 * Assign your Secret UAS API Token in Heroku Settings (named UAS_TOKEN)
 * Modify the code to suit your server channel IDs, role IDs, and Asset Names. (really only some stuff in the first ~30 lines)
-* Note: If you're in a sale/megabundle then there may be unique asset names eg "Your Asset" vs "Your Asset (fill-your-toolbox).
+* Note: If you're in a sale/megabundle then there may be unique asset names eg "Your Asset" vs "Your Asset (fill-your-toolbox)".
 
 # Heroku Setup
 Currently I am running this on Heroku using a worker dyno. If you have a CC on file with Heroku then you get 1,000h/mo for free which covers the bot entirely. Below is the video I used to figure out how to set it up. You can hook Heroku into GitHub directly to auto-update when you issue commits to your bot repo.
+
 [![Heroku Setup Tutorial](https://img.youtube.com/vi/OFearuMjI4s/0.jpg)](https://www.youtube.com/watch?v=OFearuMjI4s)
 
 Heroku will reboot the app every day, so if you are trying to add any features where you cache data then be sure to do it in a safe/static place.
