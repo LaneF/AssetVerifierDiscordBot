@@ -23,6 +23,8 @@ https://forum.unity.com/threads/free-invoice-verifier-bot-for-discord.1034953/
 
 Note: If you're in a sale/megabundle then there may be unique asset names eg "Your Asset" vs "Your Asset (fill-your-toolbox)".
 
+Make sure all of the Role IDs, Channel IDs, etc correspond properly to your server's specific properties. Heroku will throw errors if Discord has issues with anything you've got setup and you need to troubleshoot those issues if they occur. Fortunately, the errors are easy to follow and you can correlate them to things easily.
+
 # Heroku Setup
 Currently I am running this on Heroku using a worker dyno. If you have a CC on file with Heroku then you get 1,000h/mo for free which covers the bot entirely. Below is the video I used to figure out how to set it up. You can hook Heroku into GitHub directly to auto-update when you issue commits to your bot repo.
 
