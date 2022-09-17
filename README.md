@@ -18,6 +18,7 @@ https://forum.unity.com/threads/free-invoice-verifier-bot-for-discord.1034953/
 * Assign your Secret Discord Bot Token in Heroku Settings (named DISCORD_TOKEN)
 * Assign your Secret UAS API Token in Heroku Settings (named UAS_TOKEN)
 * Modify the code to suit your server channel IDs, role IDs, and Asset Names. (really only some stuff in the first ~30 lines)
+* Give your bot a role in your server that allows it to assign roles to users, read messages, etc.
 * Note: If you're in a sale/megabundle then there may be unique asset names eg "Your Asset" vs "Your Asset (fill-your-toolbox)".
 
 # Heroku Setup
