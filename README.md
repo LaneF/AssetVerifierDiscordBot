@@ -11,6 +11,7 @@ https://forum.unity.com/threads/free-invoice-verifier-bot-for-discord.1034953/
 2. The bot uses the UAS web API to verify it.
 3. If it contains a product name that matches something in the hard-coded map then it assigns the corresponding Role and reports the action to the discord report channel.
 4. User now has XYZ role(s), and can see channels restricted to those roles.
+5. The bot dumps a message into your 'report' or 'audit' channel about what it did.
 
 # Base Requirements
 * Create a Application/Bot through Discord's developer dashboard.
