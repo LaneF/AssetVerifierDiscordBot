@@ -14,6 +14,7 @@ const ROLE_ID_QUINN         = "933411189369745448";
 const ROLE_ID_ZED           = "933416260362977280";
 const ROLE_ID_STYLIZED      = "933416171674431528";
 const ROLE_ID_DEFTLY        = "933416063310368818";
+const ROLE_ID_CENOTE        = "1515142128018395237";
 const HELPMESSAGE           = "I can verify your purchase if you send me a message with _only_ the order/invoice id. If you include anything else in the message Ill be confused!\n\nAsset Store _Order_ IDs look like a big string of numbers: **1301234567890**\nAsset Store _Invoice_ IDs look like numbers but start with IN: **IN1234567890**\nYou can find your orders by going to the asset store, clicking your profile, then clicking My Orders, or click the link below.\n\nhttps://assetstore.unity.com/orders";
 
 // Map of Product Name to Discord Server Role name.
@@ -29,6 +30,20 @@ assetToRoleMap.set("Zed",                                   ROLE_ID_ZED);
 assetToRoleMap.set("Deftly: Top Down Shooter Framework",    ROLE_ID_DEFTLY);
 assetToRoleMap.set("Quinn Stylized Animset",                ROLE_ID_QUINN);
 assetToRoleMap.set("Stylized Fantasy Character Pack",       ROLE_ID_STYLIZED);
+assetToRoleMap.set("Cenote Voxel Suite",             		ROLE_ID_CENOTE);
+
+// Resolve a UAS package name to a role id using substring matching, so that
+// sale-renamed products (e.g. "<Product> - Mega Sale") still match. Returns
+// the first matching entry in insertion order, or undefined if none match.
+function getRoleIdForPackage(packageName)
+{
+    if (typeof packageName !== "string") return undefined;
+    for (const [productName, roleId] of assetToRoleMap)
+    {
+        if (packageName.includes(productName)) return roleId;
+    }
+    return undefined;
+}
 
 const https = require("https");
 
@@ -113,7 +128,7 @@ client.on("messageCreate",
 
                                         for (const invoice of data.invoices)
                                         {
-                                            const roleIdToAdd = assetToRoleMap.get(invoice.package);
+                                            const roleIdToAdd = getRoleIdForPackage(invoice.package);
                                             const role = guild.roles.cache.get(roleIdToAdd);
                                             const verifiedRole = guild.roles.cache.get(ROLE_ID_VERIFIED);
 
